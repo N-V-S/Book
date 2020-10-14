@@ -1,0 +1,2 @@
+Head First Java_Kathy Sierra_Eksmo_2015
+Effective Java_Joshua Bloch_Prentice Hall_2008
