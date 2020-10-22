@@ -11,13 +11,13 @@ public class TitleBookComparator implements Comparator<Book> {
         String titleFirstBook = firstBook.getTitle();
         String titleSecondBook = secondBook.getTitle();
 
-        if (titleFirstBook == null && titleSecondBook != null) {
-            return -1;
-        }
         if (titleFirstBook == null && titleSecondBook == null) {
             return 0;
         }
-        if (titleFirstBook != null && titleSecondBook == null) {
+        if (titleFirstBook == null) {
+            return -1;
+        }
+        if (titleSecondBook == null) {
             return 1;
         }
         return titleFirstBook.compareToIgnoreCase(titleSecondBook);

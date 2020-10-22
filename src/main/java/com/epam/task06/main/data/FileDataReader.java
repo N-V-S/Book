@@ -21,9 +21,10 @@ public class FileDataReader {
         List<String> fileLines = new ArrayList<String>();
         try {
             reader = new BufferedReader(new java.io.FileReader(fileName));
-            String line;
-            while ((line = reader.readLine()) != null) {
+            String line = reader.readLine();
+            while (line != null) {
                 fileLines.add(line);
+                line = reader.readLine();
             }
         } catch (IOException e) {
             throw new DataException(e.getMessage(), e);

@@ -30,7 +30,7 @@ public class BookDaoImpl implements BookDao {
         books.remove(book);
     }
 
-    public <T> List<Book> findByTag(BookFields field, T value) {
+    public <T> List<Book> findByTag(BookFields field, T value) throws DaoException {
         Specification specification = specificationFactory.create(field);
         return specification.find(books, value);
     }
@@ -45,7 +45,7 @@ public class BookDaoImpl implements BookDao {
         return sortedBookList;
     }
 
-    public int size() {
+    public int getSize() {
         return books.size();
     }
 }

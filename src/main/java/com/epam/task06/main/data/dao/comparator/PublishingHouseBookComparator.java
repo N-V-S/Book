@@ -11,13 +11,13 @@ public class PublishingHouseBookComparator implements Comparator<Book> {
         String publishingHouseFirstBook = firstBook.getPublishingHouse();
         String publishingHouseSecondBook = secondBook.getPublishingHouse();
 
-        if (publishingHouseFirstBook == null && publishingHouseSecondBook != null) {
-            return -1;
-        }
         if (publishingHouseFirstBook == null && publishingHouseSecondBook == null) {
             return 0;
         }
-        if (publishingHouseFirstBook != null && publishingHouseSecondBook == null) {
+        if (publishingHouseFirstBook == null) {
+            return -1;
+        }
+        if (publishingHouseSecondBook == null) {
             return 1;
         }
         return publishingHouseFirstBook.compareToIgnoreCase(publishingHouseSecondBook);

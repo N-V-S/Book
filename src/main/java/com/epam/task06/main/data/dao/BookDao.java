@@ -11,9 +11,9 @@ public interface BookDao {
 
     void remove(Book book) throws DaoException;
 
-    <T> List<Book> findByTag(BookFields field, T value);
+    <T> List<Book> findByTag(BookFields field, T value) throws DaoException;
 
     List<Book> sortByTag(BookFields field);
 
-    int size();
+    int getSize();
 }

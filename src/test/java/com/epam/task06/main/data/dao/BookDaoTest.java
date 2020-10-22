@@ -14,12 +14,12 @@ public class BookDaoTest {
     public void testAddBookShouldAddBookWhenGetBook() throws DaoException {
         //given
         BookDaoImpl bookDao = new BookDaoImpl();
-        int startSize = bookDao.size();
+        int startSize = bookDao.getSize();
         //when
         bookDao.add(FIRST_BOOK_TO_ADD);
         //then
-        int endSize = bookDao.size();
-        Assert.assertTrue(startSize < endSize);
+        int endSize = bookDao.getSize();
+        Assert.assertEquals(startSize +1, endSize);
     }
 
     @Test(expected = DaoException.class) //then
@@ -36,12 +36,12 @@ public class BookDaoTest {
         //given
         BookDaoImpl bookDao = new BookDaoImpl();
         bookDao.add(FIRST_BOOK_TO_ADD);
-        int startSize = bookDao.size();
+        int startSize = bookDao.getSize();
         //when
         bookDao.remove(BOOK_TO_REMOVE);
         //then
-        int endSize = bookDao.size();
-        Assert.assertTrue(startSize > endSize);
+        int endSize = bookDao.getSize();
+        Assert.assertEquals(startSize-1, endSize);
     }
 
     @Test(expected = DaoException.class) //then

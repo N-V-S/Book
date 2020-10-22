@@ -11,13 +11,13 @@ public class AuthorBookComparator implements Comparator<Book> {
         String authorFirstBook = firstBook.getAuthor();
         String authorSecondBook = secondBook.getAuthor();
 
-        if (authorFirstBook == null && authorSecondBook != null) {
-            return -1;
-        }
         if (authorFirstBook == null && authorSecondBook == null) {
             return 0;
         }
-        if (authorFirstBook != null && authorSecondBook == null) {
+        if (authorFirstBook == null) {
+            return -1;
+        }
+        if (authorSecondBook == null) {
             return 1;
         }
         return authorFirstBook.compareToIgnoreCase(authorSecondBook);
